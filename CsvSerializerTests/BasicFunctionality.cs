@@ -32,7 +32,7 @@ namespace CsvSerializerTests
 		{
 			// Arrange
 			var serializer = new Serializer();
-			var people = new[] 
+			var people = new[]
 			{
 				new Person{ FirstName = "Nate \"D\"", LastName = "Zaugg" },
 				new Person{ FirstName = "James\r\nTheKid", LastName = "King" },
@@ -112,7 +112,7 @@ namespace CsvSerializerTests
 			var person = new Person { FirstName = "Nate", LastName = "Dr, Zaugg" };
 			var ms = new MemoryStream();
 			string expected = "﻿FirstName,LastName\r\nNate,\"Dr, Zaugg\"\r\n";
-								
+
 			string actual;
 
 			// Act
