@@ -9,13 +9,10 @@ using CsvSerializer.Csv;
 
 namespace CsvSerializer
 {
-	public class Serializer
+	public class Serializer : ISerializer
 	{
-		/// <summary>The settings that are in effect for this instance of the Serializer.</summary>
 		public CsvSettings Settings { get; set; }
 
-		/// <summary>Stack of available serializers. This list will be interrogated in LIFO order for the most compatable serializer</summary>
-		/// <remarks>Note: There is a default serializer added upon class creation. Removing all serializers will result in a runtime exception.</remarks>
 		public Stack<ICsvCustomSerializer> Serializers { get; protected set; }
 
 		public Serializer()
@@ -28,13 +25,7 @@ namespace CsvSerializer
 				};
 		}
 
-		/// <summary>
-		/// Serialize an object to CSV
-		/// </summary>
-		/// <param name="output">The stream we use to write the output</param>
-		/// <param name="value">The object to serialize</param>
-		/// <param name="settings">Optional parameter for custom settings</param>
-		public void Serialize(Stream output, object value)
+		public void Serialize(Stream output, object value, bool leaveStreamOpen = true)
 		{
 			if (output == null)
 				throw new ArgumentNullException("output");
@@ -45,7 +36,7 @@ namespace CsvSerializer
 
 			var columnList = GetColumnList(value);
 
-			using (var csv = new CsvBuilder(Settings, output))
+			using (var csv = new CsvBuilder(Settings, output, leaveStreamOpen))
 			{
 				// Setup Columns
 				csv.AddColumns(columnList);
