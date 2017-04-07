@@ -8,6 +8,9 @@ namespace CsvSerializer.Csv
 {
 	public class CsvBuilder : IDisposable
 	{
+		private const int StreamBufferSize = 4096;
+		private readonly bool LeaveStreamOpen;
+
 		protected TextWriter Writer;
 		protected int RowCount;
 
@@ -33,10 +36,11 @@ namespace CsvSerializer.Csv
 			RowsList = new List<Row>();
 		}
 
-		public CsvBuilder(CsvSettings settings, Stream output) : this()
+		public CsvBuilder(CsvSettings settings, Stream output, bool leaveStreamOpen) : this()
 		{
 			Settings = settings;
 			Output = output;
+			LeaveStreamOpen = leaveStreamOpen;
 		}
 
 		public void AddColumn(Column value)
@@ -100,10 +104,10 @@ namespace CsvSerializer.Csv
 		{
 			if (RowCount < 1)
 				return;
-			
+
 			// Write the oldest rows and remove them from the collection. Leave at least 1 row.
 			var removeList = new List<Row>();
-			for(int index = 0; index < RowsList.Count - 2; index++ )
+			for (int index = 0; index < RowsList.Count - 2; index++)
 			{
 				var row = RowsList[index];
 				WriteRow(row);
@@ -118,7 +122,7 @@ namespace CsvSerializer.Csv
 		{
 			if (Writer == null)
 			{
-				Writer = new StreamWriter(Output, Settings.TextEncoding);
+				Writer = new StreamWriter(Output, Settings.TextEncoding, StreamBufferSize, LeaveStreamOpen);
 				if (Settings.WriteHeaders)
 					WriteHeader();
 			}
