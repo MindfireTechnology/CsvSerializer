@@ -118,7 +118,7 @@ namespace CsvSerializer
 						foreach (var pd in GetProperties(child, true, name, rownum++))
 							yield return pd;
 				}
-				else if (!IsCrlType(prop.PropertyType) && recursive && propValue != null)
+				else if (!IsClrType(prop.PropertyType) && recursive && propValue != null)
 				{
 					foreach (var pd in GetProperties(propValue, true, name))
 						yield return pd;
@@ -167,22 +167,34 @@ namespace CsvSerializer
 			}).ToList();
 		}
 
-		private bool IsCrlType(Type type)
+		private bool IsClrType(Type type)
 		{
-			if (type == typeof(string) || 
-				type == typeof(decimal) || 
-				type == typeof(Array) || 
-				type == typeof(DateTime) || 
+			if (type == typeof(string) ||
+				type == typeof(decimal) ||
+				type == typeof(decimal?) ||
+				type == typeof(Array) ||
+				type == typeof(DateTime) ||
+				type == typeof(DateTime?) ||
 				type == typeof(char) ||
+				type == typeof(char?) ||
 				type == typeof(byte) ||
+				type == typeof(byte?) ||
 				type == typeof(short) ||
+				type == typeof(short?) ||
 				type == typeof(ushort) ||
+				type == typeof(ushort?) ||
 				type == typeof(int) ||
+				type == typeof(int?) ||
 				type == typeof(uint) ||
+				type == typeof(uint?) ||
 				type == typeof(long) ||
+				type == typeof(long?) ||
 				type == typeof(ulong) ||
+				type == typeof(ulong?) ||
 				type == typeof(float) ||
-				type == typeof(double) )
+				type == typeof(float?) ||
+				type == typeof(double) ||
+				type == typeof(double?))
 				return true;
 			else
 				return false;

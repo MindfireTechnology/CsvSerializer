@@ -48,5 +48,8 @@ namespace CsvSerializerTests
 		public decimal PricePerQty { get; set; }
 		public decimal Qty { get; set; }
 		public decimal LineTotal { get; set; }
+
+		public DateTime? TimeShipped { get; set; }
+		public decimal? DiscountAmount { get; set; }
 	}
 }
