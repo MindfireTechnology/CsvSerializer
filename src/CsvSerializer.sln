@@ -8,9 +8,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsvSerializer", "CsvSerializer.csproj", "{A54966AB-7907-4B4A-A1A1-C700796480D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsvSerializer", "CsvSerializer\CsvSerializer.csproj", "{A54966AB-7907-4B4A-A1A1-C700796480D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsvSerializerTests", "..\CsvSerializerTests\CsvSerializerTests.csproj", "{B0EE7F44-6FDD-4350-A9F2-75245817E907}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsvSerializerTests", "CsvSerializerTests\CsvSerializerTests.csproj", "{B0EE7F44-6FDD-4350-A9F2-75245817E907}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

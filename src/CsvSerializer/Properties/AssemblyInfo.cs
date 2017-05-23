@@ -7,11 +7,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("CsvSerializer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Serialize complex objects graphs to CSV")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("State of Utah")]
+[assembly: AssemblyCompany("Mindfire Technology")]
 [assembly: AssemblyProduct("CsvSerializer")]
-[assembly: AssemblyCopyright("Copyright © State of Utah 2015")]
+[assembly: AssemblyCopyright("Copyright © Mindfite Technology")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]

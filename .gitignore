@@ -1,5 +1,4 @@
-CsvSerializer/.vs/
-CsvSerializer/bin/
-CsvSerializer/obj/
-CsvSerializerTests/bin/
-CsvSerializerTests/obj/
+.vs
+*.suo
+bin
+obj

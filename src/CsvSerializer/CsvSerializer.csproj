@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.6</TargetFramework>
+    <TargetFramework>netstandard1.3</TargetFramework>
     <AssemblyName>CsvSerializer</AssemblyName>
     <PackageId>CsvSerializer</PackageId>
     <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
@@ -14,6 +14,12 @@
     <GenerateNeutralResourcesLanguageAttribute>false</GenerateNeutralResourcesLanguageAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <Authors>Nate Zaugg</Authors>
+    <PackageIconUrl>https://avatars3.githubusercontent.com/u/13372702?v=3&amp;s=200</PackageIconUrl>
+    <RepositoryUrl>https://github.com/MindfireTechnology/CsvSerializer</RepositoryUrl>
+    <PackageTags>CSV, Serializer, Core</PackageTags>
+    <PackageLicenseUrl>https://github.com/MindfireTechnology/CsvSerializer/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/MindfireTechnology/CsvSerializer</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
