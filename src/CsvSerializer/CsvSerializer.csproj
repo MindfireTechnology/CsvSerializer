@@ -20,6 +20,13 @@
     <PackageTags>CSV, Serializer, Core</PackageTags>
     <PackageLicenseUrl>https://github.com/MindfireTechnology/CsvSerializer/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/MindfireTechnology/CsvSerializer</PackageProjectUrl>
+    <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard1.3\CsvSerializer.xml</DocumentationFile>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>True</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>

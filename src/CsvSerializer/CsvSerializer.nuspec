@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+	<metadata>
+		<id>CsvSerializer</id>
+		<title>CSV Serializer</title>
+		<version>1.0.1</version>
+		<authors>Nate Zaugg</authors>
+		<owners>Mindfire Technology</owners>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<licenseUrl>https://github.com/MindfireTechnology/CsvSerializer/blob/master/LICENSE</licenseUrl>
+		<projectUrl>https://github.com/MindfireTechnology/CsvSerializer</projectUrl>
+		<iconUrl>https://avatars3.githubusercontent.com/u/13372702?v=3&amp;s=200</iconUrl>
+		<description>Easily serialize complex objects graphs to CSV. 
+		
+		Custom field delimeters (quote, new line), headers, full quote all values, remove line breaks 
+		in fields, custom text encoding, and serialization attributes. It can also convert some child 
+		collections into rows or flatten the collections. </description>
+		
+		<tags>CSV, Serializer, Core, NetStandard</tags>
+		<repository url="https://github.com/MindfireTechnology/CsvSerializer" />
+		<dependencies>
+			<group targetFramework=".NETStandard1.3">
+				<dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+				<dependency id="System.Reflection.TypeExtensions" version="4.3.0" exclude="Build,Analyzers" />
+				<dependency id="Microsoft.NETCore.Portable.Compatibility" version="1.0.1" exclude="Build,Analyzers" />
+			</group>
+		</dependencies>
+	</metadata>
+
+	<files>
+		<file src="bin\Release\netstandard1.3\CsvSerializer.dll" target="lib\netstandard1.3\CsvSerializer.dll" />
+		<file src="bin\Release\netstandard1.3\CsvSerializer.pdb" target="lib\netstandard1.3\CsvSerializer.pdb" />
+		<file src="bin\Release\netstandard1.3\CsvSerializer.xml" target="lib\netstandard1.3\CsvSerializer.xml" />
+	</files>
+	
+</package>
