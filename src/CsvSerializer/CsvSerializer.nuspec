@@ -12,9 +12,11 @@
 		<iconUrl>https://avatars3.githubusercontent.com/u/13372702?v=3&amp;s=200</iconUrl>
 		<description>Easily serialize complex objects graphs to CSV. 
 		
-		Custom field delimeters (quote, new line), headers, full quote all values, remove line breaks 
-		in fields, custom text encoding, and serialization attributes. It can also convert some child 
-		collections into rows or flatten the collections. </description>
+		Custom field delimeters (quote, new line), headers, full quote all values, remove line breaks in fields, custom text encoding, and serialization attributes. 
+		
+		It can also convert some child collections into rows or flatten the collections. </description>
+
+		<summary>Easily serialize complex objects graphs to CSV. </summary>
 		
 		<tags>CSV, Serializer, Core, NetStandard</tags>
 		<repository url="https://github.com/MindfireTechnology/CsvSerializer" />
