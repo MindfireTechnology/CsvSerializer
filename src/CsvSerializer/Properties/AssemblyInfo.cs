@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Mindfire Technology")]
 [assembly: AssemblyProduct("CsvSerializer")]
-[assembly: AssemblyCopyright("Copyright © Mindfite Technology")]
+[assembly: AssemblyCopyright("Copyright © Mindfire Technology")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]

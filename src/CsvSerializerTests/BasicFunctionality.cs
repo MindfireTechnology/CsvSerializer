@@ -154,7 +154,7 @@ namespace CsvSerializerTests
 				Customer = new Person { FirstName = "Nate", LastName = "Zaugg" }
 			};
 			var ms = new MemoryStream();
-			string expected = "﻿Id,OrderDate,Customer.FirstName,Customer.LastName,Subtotal,Tax,Total\r\nOrder/12,6/1/2015 12:00:00 AM,Nate,Zaugg,0,0,0\r\n";
+			string expected = $"﻿Id,OrderDate,Customer.FirstName,Customer.LastName,Subtotal,Tax,Total\r\nOrder/12,{new DateTime(2015, 06, 01)},Nate,Zaugg,0,0,0\r\n";
 
 			string actual;
 
@@ -184,7 +184,7 @@ namespace CsvSerializerTests
 			order.Add(new OrderItem { Id = "2", Name = "Xoom Tablet", ShortDescription = "I like Xoom tab", Qty = 1, PricePerQty = 100, LineTotal = 100 });
 
 			var ms = new MemoryStream();
-			string expected = "﻿Id,OrderDate,Customer.FirstName,Customer.LastName,Subtotal,Tax,Total,Items1.Name,Items1.ShortDescription,Items1.PricePerQty,Items1.Qty,Items1.LineTotal,Items1.TimeShipped,Items1.DiscountAmount,Items2.Name,Items2.ShortDescription,Items2.PricePerQty,Items2.Qty,Items2.LineTotal,Items2.TimeShipped,Items2.DiscountAmount\r\nOrder/12,6/1/2015 12:00:00 AM,Nate,Zaugg,300,22,322,Galaxy S5,My phone is nice!,200,1,200,,,Xoom Tablet,I like Xoom tab,100,1,100,,\r\n";
+			string expected = $"﻿Id,OrderDate,Customer.FirstName,Customer.LastName,Subtotal,Tax,Total,Items1.Name,Items1.ShortDescription,Items1.PricePerQty,Items1.Qty,Items1.LineTotal,Items1.TimeShipped,Items1.DiscountAmount,Items2.Name,Items2.ShortDescription,Items2.PricePerQty,Items2.Qty,Items2.LineTotal,Items2.TimeShipped,Items2.DiscountAmount\r\nOrder/12,{new DateTime(2015, 06, 01)},Nate,Zaugg,300,22,322,Galaxy S5,My phone is nice!,200,1,200,,,Xoom Tablet,I like Xoom tab,100,1,100,,\r\n";
 
 			string actual;
 
@@ -262,8 +262,8 @@ namespace CsvSerializerTests
 			sb.Append("﻿Id,OrderDate,Customer.FirstName,Customer.LastName,Subtotal,Tax,Total,");
 			sb.Append("Items1.Name,Items1.ShortDescription,Items1.PricePerQty,Items1.Qty,Items1.LineTotal,Items1.TimeShipped,Items1.DiscountAmount,");
 			sb.Append("Items2.Name,Items2.ShortDescription,Items2.PricePerQty,Items2.Qty,Items2.LineTotal,Items2.TimeShipped,Items2.DiscountAmount\r\n");
-			sb.Append("Order/13,4/7/2017 12:00:00 AM,Zach,Thurston,935,21,956,");
-			sb.Append("iPhone 7,128 GB Jet Black,850,1,775,4/7/2017 12:03:00 PM,75,");
+			sb.Append($"Order/13,{new DateTime(2017, 04, 07)},Zach,Thurston,935,21,956,");
+			sb.Append($"iPhone 7,128 GB Jet Black,850,1,775,{new DateTime(2017, 04, 07, 12, 3, 00)},75,");
 			sb.Append("AirPods,Wireless earbuds,160,1,160,,\r\n");
 
 			string actual;
@@ -271,6 +271,24 @@ namespace CsvSerializerTests
 
 			// Act
 			serializer.Serialize(ms, order);
+			actual = Encoding.UTF8.GetString(ms.ToArray());
+
+			// Assert
+			Assert.AreEqual(expected, actual);
+		}
+
+		[TestMethod]
+		public void AssertHeaderPrintedUsingJsonPropertyAttribute()
+		{
+			// Arrange
+			var serializer = new Serializer();
+			var person = new RestPerson { FirstName = "Nate \"D\"", LastName = "Zaugg" };
+			var ms = new MemoryStream();
+			string expected = "﻿first_name,last_name\r\n\"Nate \"\"D\"\"\",Zaugg\r\n";
+			string actual;
+
+			// Act
+			serializer.Serialize(ms, person);
 			actual = Encoding.UTF8.GetString(ms.ToArray());
 
 			// Assert

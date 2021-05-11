@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using CsvSerializer.Csv;
+using Newtonsoft.Json;
 
 namespace CsvSerializer
 {
@@ -107,6 +108,13 @@ namespace CsvSerializer
 					(Settings.UseXmlAttributes && attributes.Any(n => n.TypeName() == "XmlIgnoreAttribute")) ||
 					(Settings.UseJsonAttributes && attributes.Any(n => n.TypeName() == "JsonIgnoreAttribute")))
 					continue;
+
+				// Check for JsonPropertyAttribute
+				if (Settings.UseJsonAttributes && attributes.Any(n => n.TypeName() == "JsonPropertyAttribute"))
+				{
+					var attribute = (JsonPropertyAttribute)attributes.First(n => n.TypeName() == "JsonPropertyAttribute");
+					simpleName = attribute.PropertyName;
+				}
 
 				// Check for collection
 				object propValue = prop.GetValue(value, null);

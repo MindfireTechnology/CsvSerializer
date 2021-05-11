@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CsvSerializer;
+using Newtonsoft.Json;
 
 namespace CsvSerializerTests
 {
@@ -12,6 +13,18 @@ namespace CsvSerializerTests
 		[CsvIgnore]
 		public string Id { get; set; }
 		public string FirstName { get; set; }
+		public string LastName { get; set; }
+	}
+
+	public class RestPerson
+	{
+		[JsonIgnore]
+		public string Id { get; set; }
+
+		[JsonProperty("first_name")]
+		public string FirstName { get; set; }
+
+		[JsonProperty("last_name")]
 		public string LastName { get; set; }
 	}
 
