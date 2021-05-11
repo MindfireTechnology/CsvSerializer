@@ -294,6 +294,32 @@ namespace CsvSerializerTests
 			// Assert
 			Assert.AreEqual(expected, actual);
 		}
-	}
 
+		[TestMethod]
+		public void ThrowExceptionIfRequiredPropertyIsNull()
+		{
+			// Arrange
+			var serializer = new Serializer();
+			var person = new RestPerson { FirstName = "Nate \"D\"" };
+			var ms = new MemoryStream();
+			string expected = "Cannot write a null value for property 'LastName'. Property requires a value.";
+			string actual;
+
+			// Act
+			try
+            {
+				serializer.Serialize(ms, person);
+
+				// Assert
+				Assert.Fail("Expected CsvSerializationException to occur.");
+			}
+            catch (CsvSerializationException ex )
+            {
+				actual = ex.Message;
+
+				// Assert
+				Assert.AreEqual(expected, actual);
+			}		
+		}
+	}
 }

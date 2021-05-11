@@ -24,6 +24,7 @@ namespace CsvSerializerTests
 		[JsonProperty("first_name")]
 		public string FirstName { get; set; }
 
+		[JsonRequired]
 		[JsonProperty("last_name")]
 		public string LastName { get; set; }
 	}

@@ -116,6 +116,17 @@ namespace CsvSerializer
 					simpleName = attribute.PropertyName;
 				}
 
+				// Check for JsonRequiredAttribute
+				if (Settings.UseJsonAttributes && attributes.Any(n => n.TypeName() == "JsonRequiredAttribute"))
+				{
+					object propertyValue = prop.GetValue(value, null);
+
+					if (propertyValue == null)
+					{
+						throw new CsvSerializationException($"Cannot write a null value for property '{prop.Name}'. Property requires a value.", null);
+					}
+				}
+
 				// Check for collection
 				object propValue = prop.GetValue(value, null);
 				if (Settings.ConvertChildCollectionsToRows && propValue is IEnumerable && !(propValue is string))
