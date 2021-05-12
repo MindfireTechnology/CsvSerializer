@@ -2,6 +2,7 @@
 Convert an object graph to CSV.
 
 ## Basic Usage
+```csharp
 	var target = new[]
 	{
 		new Person { Name = "Nate Zaugg", Department = "Management", Charisma = 100, Address = new Address { Street1 = "123 Fake Street", Address2 = "C/O Homer", City = "Springfield" } },
@@ -14,13 +15,14 @@ Convert an object graph to CSV.
 		ISerializer serializer = new CsvSerializer(); // Obviously do this via DI
 		serializer.Serialize(fs, target);
 	}
-
+```
+```
 	// The file output would be:
 	Name,Department,Charisma,Address.Street1,Address.Street2,Address.City
 	"Nate Zaugg",Management,100,"123 Fake Street","C/O Homer",Springfield
 	"Dan Beus",IT,110,"872 Heratigte Park Blvd","Suite 200",Layton
 	"Phil Gilmore",AV,110,"53 Broad Street",#600,"Salt Lake City"
-
+```
 
 ## Settings
 
