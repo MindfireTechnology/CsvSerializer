@@ -43,6 +43,9 @@ namespace CsvSerializer
 		/// <summary>Specifies if attribute tags like [NonSerialized] or [DataMember(Name="value")]</summary>
 		public bool UseSerializerAttributes { get; set; }
 
+		/// <summary>Specifies if attribute tags like [StringLength]</summary>
+		public bool UserDataAnnotationAttributes { get; set; }
+
 		/// <summary>
 		///		Indicates if a collection is detected as a property on the object to be serialized, the collection will be converted to rows. 
 		///		E.g. If there is a Person with 3 addresses, there will be columns for Person.Address1.City, Person.Address2.City, and Person.Address3.City.
@@ -73,6 +76,7 @@ namespace CsvSerializer
 			UseXmlAttributes = true;
 			UseJsonAttributes = true;
 			UseSerializerAttributes = true;
+			UserDataAnnotationAttributes = true;
 			ConvertChildCollectionsToRows = true;
 			FlattenHeirarchicalStructuresWithEmptyRows = true;
 		}

@@ -62,10 +62,14 @@ The delimeter between each part of a path. E.g. "Person.Address.Line1". Default:
 Specifies if attribute tags like [XmlIgnore] or [XmlElement(Name="value")] should be observed. Default: true (bool)
 
 ### UseJsonAttributes
-Specifies if attribute tags like [JsonIgnore] or [JsonProperty("value")] should be observed. Default: true (bool)
+Specifies if attribute tags like [JsonIgnore] or [JsonProperty("value")] or [JsonRequired] should be observed. Default: true (bool)
 
 ### UseSerializerAttributes
-Specifies if attribute tags like [NonSerialized] or [DataMember(Name="value")]. Default: true (bool)
+Specifies if attribute tags like [NonSerialized] or [DataMember(Name="value")] should be observed. Default: true (bool)
+
+### UseDataAnnotationAttributes
+Specifies if attribute tags like [StringLength] should be observed. Default: true (bool)
+
 
 ### ConvertChildCollectionsToRows
 Indicates if a collection is detected as a property on the object to be serialized, the collection will be converted to rows. 
