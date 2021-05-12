@@ -282,9 +282,9 @@ namespace CsvSerializerTests
         {
             // Arrange
             var serializer = new Serializer();
-            var person = new RestPerson { FirstName = "Nate \"D\"", LastName = "Zaugg" };
+            var person = new RestPerson { FirstName = "Nate", LastName = "Zaugg" };
             var ms = new MemoryStream();
-            string expected = "﻿first_name,last_name\r\n\"Nate \"\"D\"\"\",Zaugg\r\n";
+            string expected = "﻿first_name,last_name\r\nNate,Zaugg\r\n";
             string actual;
 
             // Act
@@ -300,7 +300,7 @@ namespace CsvSerializerTests
         {
             // Arrange
             var serializer = new Serializer();
-            var person = new RestPerson { FirstName = "Nate \"D\"" };
+            var person = new RestPerson { FirstName = "Nate" };
             var ms = new MemoryStream();
             string expected = "Cannot write a null value for property 'LastName'. Property requires a value.";
             string actual;
